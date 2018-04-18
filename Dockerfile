@@ -1,6 +1,6 @@
-# A CentOS7 Stack image using upstream repo
-FROM centos:7
-MAINTAINER Brian C. Lane <bcl@redhat.com>
+# RHEL-7 image
+FROM registry.access.redhat.com/rhel7/rhel
+MAINTAINER David Cantrell <dcantrell@redhat.com>
 
 # systemd enabled container (from https://hub.docker.com/_/centos/)
 ENV container docker
