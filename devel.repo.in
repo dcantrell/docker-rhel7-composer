@@ -1,0 +1,47 @@
+[server]
+name=RHEL %VER% Server for $basearch
+baseurl=http://download.devel.redhat.com/released/RHEL-7/%VER%/Server/$basearch/os/
+enabled=1
+gpgcheck=0
+cost=1000
+
+[server-optional]
+name=RHEL %VER% Server optional for $basearch
+baseurl=http://download.devel.redhat.com/released/RHEL-7/%VER%/Server-optional/$basearch/os/
+enabled=1
+gpgcheck=0
+cost=1000
+
+[workstation]
+name=RHEL %VER% Workstation for $basearch
+baseurl=http://download.devel.redhat.com/released/RHEL-7/%VER%/Workstation/$basearch/os/
+enabled=1
+gpgcheck=0
+cost=900
+
+[workstation-optional]
+name=RHEL %VER% Workstation optional for $basearch
+baseurl=http://download.devel.redhat.com/released/RHEL-7/%VER%/Workstation-optional/$basearch/os/
+enabled=1
+gpgcheck=0
+cost=900
+
+[client]
+name=RHEL %VER% Client for $basearch
+baseurl=http://download.devel.redhat.com/released/RHEL-7/%VER%/Client/$basearch/os/
+enabled=1
+gpgcheck=0
+cost=800
+
+[client-optional]
+name=RHEL %VER% Client optional for $basearch
+baseurl=http://download.devel.redhat.com/released/RHEL-7/%VER%/Client-optional/$basearch/os/
+enabled=1
+gpgcheck=0
+cost=800
+
+[extras]
+name=RHEL-7 Extras - $basearch
+baseurl=http://cdn.stage.redhat.com/content/dist/rhel/server/7/7Server/$basearch/extras/
+enabled=1
+gpgcheck=0
