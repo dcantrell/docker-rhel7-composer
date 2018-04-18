@@ -1,4 +1,7 @@
 # RHEL-7 image
+#
+# This is based on Brian Lane's CentOS-7 Dockerfile for Composer:
+# https://github.com/weldr/docker-centos7-composer
 FROM registry.access.redhat.com/rhel7/rhel
 MAINTAINER David Cantrell <dcantrell@redhat.com>
 
@@ -13,6 +16,13 @@ rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
 rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
 rm -f /lib/systemd/system/basic.target.wants/*;\
 rm -f /lib/systemd/system/anaconda.target.wants/*;
+
+# Disable subscription-manager for the purposes of this example
+RUN sed -i -e 's|enabled=1|enabled=0|g' /etc/yum/pluginconf.d/subscription-manager.conf
+
+# Copy in repo files to point to devel builds
+COPY devel.repo.in /etc/yum.repos.d/devel.repo
+RUN ( . /etc/os-release ; sed -i -e "s|%VER%|$VERSION_ID|g" /etc/yum.repos.d/devel.repo )
 
 # lorax-composer depends on a couple of EPEL packages, so install the EPEL repo
 RUN rpm -i https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
