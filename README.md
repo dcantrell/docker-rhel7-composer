@@ -1,1 +1,1 @@
-# docker-rhel8-composer
+# docker-rhel7-composer
